@@ -2,7 +2,7 @@ import os
 
 
 
-class Iterator:
+class iterator:
     def __init__(self, class_name, dataset_name):
         self.dataset_name = dataset_name
         self.counter = 0
