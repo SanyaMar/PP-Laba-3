@@ -46,17 +46,20 @@ def getting_relative_path(class_name: str)-> list[str]:
     return image_relative_path
 
 
-def dataset_()-> None:
+def dataset_2()-> None:
     first_class="cat"
     second_class="dog"
 
     if os.path.isdir('dataset_2'):
         shutil.rmtree('dataset_2')
 
-    os.mkdir('dataset_2')
+    path_dataset_1 = os.path.relpath('dataset_1')
+    path_dataset_2 = os.path.relpath('dataset_2')
+    shutil.copytree(path_dataset_1, path_dataset_2)
+
     replace_images(first_class)
     replace_images(second_class)
-
+    
 def second_annotation()-> None:
     first_class="cat"
     second_class="dog"

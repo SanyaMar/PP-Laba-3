@@ -37,14 +37,17 @@ def new_rel_paths()-> None:
     return new_rel_paths
 
 def annotation_3()-> None:
-    rel_paths=rel_paths()
+    rel_path=rel_paths()
     abs_path = os.path.abspath('dataset_3')
     path = [os.path.join(abs_path, name) for name in new_names] 
     new_abs_paths = list(path)
+     
+    new_rel_path = new_rel_paths()
+    
 
     with open('paths_3.csv', 'w') as csv_file:
         writer = csv.writer(csv_file, delimiter=',', lineterminator='\r')
-        for full_path, rel_path, old_rel_path in zip(new_abs_paths, new_rel_paths, rel_paths):
+        for full_path, rel_path, old_rel_path in zip(new_abs_paths, new_rel_path, rel_path):
             if 'cat' in old_rel_path:
                 class_name = 'cat'
             else:
