@@ -5,7 +5,9 @@ import shutil
 
 def replace_images(class_name: str) -> list[str]:
     """
-    Данная функция изменяет имена изображений и переносит их в другую директорию
+    Данная функция изменяет имена изображений, объединяя номер изображения и класс в формате class_number.jpg, 
+    Parameters: class_name: str, second_dataset: str
+    Returns: none
     """
     relative_path = os.path.relpath("dataset_2")
     class_path = os.path.join(relative_path, class_name)
@@ -28,7 +30,9 @@ def replace_images(class_name: str) -> list[str]:
 
 def getting_absolute_path(class_name: str) -> list[str]:
     """
-    Данная функция возвращает список измененных абсолютных путей для изображений
+    Данная функция возвращает список list абсолютных путей изображений
+    Parameters: class_name : str, second_dataset: str
+    Returns: list
     """
     absolute_path = os.path.abspath("dataset_2")
     image_names = os.listdir(absolute_path)
@@ -36,14 +40,17 @@ def getting_absolute_path(class_name: str) -> list[str]:
     for name in image_names:
         if class_name in name:
             image_class_names.append(name)
-    image_absolute_path = [os.path.join(absolute_path, name) for name in image_names]
+    image_absolute_path = [os.path.join(
+        absolute_path, name) for name in image_names]
 
     return image_absolute_path
 
 
 def getting_relative_path(class_name: str) -> list[str]:
     """
-    Данная функция возвращает список измененных относительных путей для изображений
+   Данная функция возвращает список list относительных путей изображений(относительно dataset)
+    Parameters: class_name : str, second_dataset: str
+    Returns: list
     """
     relative_path = os.path.relpath("dataset_2")
     image_names = os.listdir(relative_path)
@@ -51,7 +58,8 @@ def getting_relative_path(class_name: str) -> list[str]:
     for name in image_names:
         if class_name in name:
             image_class_names.append(name)
-    image_relative_path = [os.path.join(relative_path, name) for name in image_names]
+    image_relative_path = [os.path.join(
+        relative_path, name) for name in image_names]
 
     return image_relative_path
 

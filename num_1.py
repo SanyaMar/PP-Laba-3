@@ -4,7 +4,9 @@ import csv
 
 def getting_absolute_path(images_class: str) -> list[str]:
     """
-    Данная функция получает имя класса изображений и возвращает список абсолютных путей изображений
+    Данная функция возвращает список list абсолютных путей изображений
+    Parameters: class_name : str, second_dataset: str
+    Returns: list
     """
     absolute_path = os.path.abspath("dataset_1")
     class_path = os.path.join(absolute_path, images_class)
@@ -16,7 +18,9 @@ def getting_absolute_path(images_class: str) -> list[str]:
 
 def getting_relative_path(images_class: str) -> list[str]:
     """
-    Данная функция получает имя класса изображений и возвращает список относительных путей изображений(относительно dataset)
+    Данная функция возвращает список list относительных путей изображений(относительно dataset)
+    Parameters: class_name : str, path_dataset: str
+    Returns: list
     """
     relative_path = os.path.relpath("dataset_1")
     class_path = os.path.join(relative_path, images_class)
@@ -38,7 +42,7 @@ def first_annotation() -> None:
     dog_abs_paths = getting_absolute_path(second_class)
     dog_rel_paths = getting_relative_path(second_class)
 
-    with open("paths.csv", "w") as csv_file:
+    with open("paths_1.csv", "w") as csv_file:
         writer = csv.writer(csv_file, delimiter=",", lineterminator="\r")
         for abs_path, rel_path in zip(cat_abs_paths, cat_rel_paths):
             writer.writerow([abs_path, rel_path, first_class])

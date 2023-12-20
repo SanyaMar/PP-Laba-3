@@ -10,9 +10,17 @@ class Iterator:
         self.limit = len(self.data)
 
     def __iter__(self):
+        """
+        Возвращает сам объект-итератор
+        """
         return self
 
     def __next__(self):
+        """
+        Возвращает следующий путь к файлу в списке данных, если он доступен, в противном случае возвращает None
+
+        Returns: str or none
+        """
         if self.counter < self.limit:
             next_path = os.path.join(
                 self.dataset_name, self.class_name, self.data[self.counter]

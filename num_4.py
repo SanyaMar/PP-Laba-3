@@ -5,6 +5,8 @@ def get_next_instance(class_name: str) -> str:
     """
     Данная функция возвращает относительрный путь для объекта класса, переданного
     в функцию
+    Parameters: class_name: str, first_dataset: str
+    Returns: none
     """
     path = os.path.join("dataset", class_name)
     class_names = os.listdir(path)
